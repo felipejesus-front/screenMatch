@@ -1,19 +1,23 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Filme {
 
     String nome;
-    int anoDeLancamento;
-    boolean incluidoNoPlano;
-    List<Double> avaliacoes = new java.util.ArrayList<>();
-    int totalAvaliacao;
-    int duracaoEmMinutos;
+    private int anoDeLancamento;
+    private boolean incluidoNoPlano;
+    private final List<Double> avaliacoes = new ArrayList<Double>();
+    private int totalAvaliacao;
+    private int duracaoEmMinutos;
+    private double mediaAvaliacao;
 
     void exibirFichaTecnica(){
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " +  anoDeLancamento);
         System.out.println("Avaliação do filme: " + avaliacoes);
         System.out.println("Total de avaliações: " + totalAvaliacao);
+        System.out.println("Média de avaliação: " + mediaAvaliacao);
+
     }
 
     void avalia(double nota){
@@ -25,9 +29,61 @@ public class Filme {
                 .mapToDouble(Double::doubleValue)
                 .sum();
 
-        double media = somaAvaliacoes / totalAvaliacao;
-        System.out.println("Avaliação adicionada: " + nota);
-        System.out.println("Média de avaliações: " + media);
+        this.mediaAvaliacao = somaAvaliacoes / totalAvaliacao;
+
     }
+
+    public int getAnoDeLancamento() {
+        return anoDeLancamento;
+    }
+
+    public void setAnoDeLancamento(int anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public boolean isIncluidoNoPlano() {
+        return incluidoNoPlano;
+    }
+
+    public void setIncluidoNoPlano(boolean incluidoNoPlano) {
+        this.incluidoNoPlano = incluidoNoPlano;
+    }
+
+    public List<Double> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public int getTotalAvaliacao() {
+        return totalAvaliacao;
+    }
+
+    public void setTotalAvaliacao(int totalAvaliacao) {
+        this.totalAvaliacao = totalAvaliacao;
+    }
+
+    public int getDuracaoEmMinutos() {
+        return duracaoEmMinutos;
+    }
+
+    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+        this.duracaoEmMinutos = duracaoEmMinutos;
+    }
+
+    public double getMediaAvaliacao() {
+        return mediaAvaliacao;
+    }
+
+    public void setMediaAvaliacao(double mediaAvaliacao) {
+        this.mediaAvaliacao = mediaAvaliacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 
 }

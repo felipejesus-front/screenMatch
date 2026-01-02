@@ -5,8 +5,8 @@ public class Main {
 
         Filme meuFilme = new Filme();
         meuFilme.nome = "Alto da compadecida";
-        meuFilme.duracaoEmMinutos = 30;
-        meuFilme.anoDeLancamento = 2002;
+        meuFilme.setDuracaoEmMinutos(30);
+        meuFilme.setAnoDeLancamento(2002);
 
         meuFilme.avalia(8);
         meuFilme.avalia(9);
