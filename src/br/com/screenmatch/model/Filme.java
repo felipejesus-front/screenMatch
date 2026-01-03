@@ -1,3 +1,5 @@
+package br.com.screenmatch.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class Filme {
     private int duracaoEmMinutos;
     private double mediaAvaliacao;
 
-    void exibirFichaTecnica(){
+    public void exibirFichaTecnica(){
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " +  anoDeLancamento);
         System.out.println("Avaliação do filme: " + avaliacoes);
@@ -20,15 +22,13 @@ public class Filme {
 
     }
 
-    void avalia(double nota){
+    public void avalia(double nota){
         totalAvaliacao++;
         avaliacoes.add(nota);
-
 
         double somaAvaliacoes = avaliacoes.stream()
                 .mapToDouble(Double::doubleValue)
                 .sum();
-
         this.mediaAvaliacao = somaAvaliacoes / totalAvaliacao;
 
     }
