@@ -14,6 +14,12 @@ public class Titulo implements CalculaEstrelas {
     private int totalAvaliacao;
     private int duracaoEmMinutos;
     private double mediaAvaliacao;
+    private String tituloTipo;
+
+    protected Titulo(String tituloTipo) {
+        this.tituloTipo = tituloTipo;
+    }
+
     @Override
     public double getCalculaEstrelas() {
         return getMediaAvaliacao() / 2;
@@ -90,5 +96,12 @@ public class Titulo implements CalculaEstrelas {
         this.nome = nome;
     }
 
+    public String getTituloTipo() {
+        return tituloTipo;
+    }
+
+    public void setTituloTipo(String tituloTipo) {
+        this.tituloTipo = tituloTipo;
+    }
 
 }
