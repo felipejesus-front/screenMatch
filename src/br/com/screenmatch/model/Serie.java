@@ -1,12 +1,18 @@
 package br.com.screenmatch.model;
 
-public class Serie extends Titulo{
+import br.com.screenmatch.calculos.CalculaEstrelas;
+
+public class Serie extends Titulo  {
     private int temporadas;
     private int episodiosPorTemporada;
     private int minutosPorEpisodio;
-
-
     private boolean emAndamento;
+
+
+    public Serie() {
+        super("série");
+    }
+
 
     @Override
     public int getDuracaoEmMinutos() {
