@@ -26,11 +26,13 @@ public class Titulo implements CalculaEstrelas {
     }
 
     public void exibirFichaTecnica(){
-        System.out.println("Nome do filme: " + nome);
+        System.out.println("-----------------------------------");
+        System.out.println("Nome: " + nome);
         System.out.println("Ano de lançamento: " +  anoDeLancamento);
         System.out.println("Avaliação do filme: " + avaliacoes);
         System.out.println("Total de avaliações: " + totalAvaliacao);
         System.out.println("Média de avaliação: " + mediaAvaliacao);
+        System.out.println("-----------------------------------");
     }
 
     public void avalia(double nota){
