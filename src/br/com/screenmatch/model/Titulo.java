@@ -1,9 +1,11 @@
 package br.com.screenmatch.model;
 
+import br.com.screenmatch.calculos.CalculaEstrelas;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Titulo {
+public class Titulo implements CalculaEstrelas {
 
     String nome;
     private int anoDeLancamento;
@@ -12,6 +14,10 @@ public class Titulo {
     private int totalAvaliacao;
     private int duracaoEmMinutos;
     private double mediaAvaliacao;
+    @Override
+    public double getCalculaEstrelas() {
+        return getMediaAvaliacao() / 2;
+    }
 
     public void exibirFichaTecnica(){
         System.out.println("Nome do filme: " + nome);
