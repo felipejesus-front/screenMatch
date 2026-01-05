@@ -16,8 +16,9 @@ public class Titulo implements CalculaEstrelas {
     private double mediaAvaliacao;
     private String tituloTipo;
 
-    protected Titulo(String tituloTipo) {
-        this.tituloTipo = tituloTipo;
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
     }
 
     @Override

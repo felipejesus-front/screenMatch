@@ -11,16 +11,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         CalculadoraDeTempo calcula = new CalculadoraDeTempo();
-        Filme meuFilme = new Filme();
-        Serie minhaSerie = new Serie();
+
         FiltroRecomendacao filtro = new FiltroRecomendacao();
         ArrayList<Filme> listaFilmes = new ArrayList<>();
         ArrayList<Serie> listaSeries = new ArrayList<>();
 
-        meuFilme.setNome("Alto da compadecida");
-        meuFilme.setDuracaoEmMinutos(30);
-        meuFilme.setAnoDeLancamento(2002);
-
+        Filme meuFilme = new Filme("Alto da compadecida", 2002, 30, "Guel Arraes");
         meuFilme.avalia(8);
         meuFilme.avalia(9);
         meuFilme.avalia(10);
@@ -29,11 +25,7 @@ public class Main {
         filtro.filtraPorClassificacao(meuFilme);
 
 
-        minhaSerie.setNome("Breaking Bad");
-        minhaSerie.setTemporadas(5);
-        minhaSerie.setEpisodiosPorTemporada(13);
-        minhaSerie.setMinutosPorEpisodio(45);
-        minhaSerie.setAnoDeLancamento(2002);
+        Serie minhaSerie = new Serie("Breaking Bad", 5, 2008, 13, 45, false);
         minhaSerie.avalia(10);
         minhaSerie.exibirFichaTecnica();
         filtro.filtraPorClassificacao(minhaSerie);
@@ -45,8 +37,9 @@ public class Main {
 
         listaSeries.add(minhaSerie);
 
-        System.out.println("Tempo total da sua lista: " + calcula.getTempoTotal() + " minutos");
+        System.out.println(listaFilmes);
+        System.out.println(listaSeries);
 
-        System.out.println("Filmes na lista: " + listaFilmes.size());
+        System.out.println("Tempo total da sua lista: " + calcula.getTempoTotal() + " minutos");
     }
 }

@@ -8,11 +8,24 @@ public class Serie extends Titulo  {
     private int minutosPorEpisodio;
     private boolean emAndamento;
 
+    public Serie(String nome, int anoDeLancamento,int temporadas,  int episodiosPorTemporada, int minutosPorEpisodio, boolean emAndamento) {
+        super(nome, anoDeLancamento);
+        this.temporadas = temporadas;
+        this.episodiosPorTemporada = episodiosPorTemporada;
+        this.minutosPorEpisodio = minutosPorEpisodio;
+        this.emAndamento = emAndamento;
 
-    public Serie() {
-        super("série");
     }
 
+
+    @Override
+    public String toString() {
+        return "Série: " + getNome() + " (" + getAnoDeLancamento() + "), " +
+                temporadas + " temporadas, " +
+                episodiosPorTemporada + " episódios por temporada, " +
+                minutosPorEpisodio + " minutos por episódio, " +
+                (emAndamento ? "em andamento" : "finalizada");
+    }
 
     @Override
     public int getDuracaoEmMinutos() {
