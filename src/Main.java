@@ -2,6 +2,7 @@ import br.com.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.screenmatch.calculos.FiltroRecomendacao;
 import br.com.screenmatch.model.Filme;
 import br.com.screenmatch.model.Serie;
+import br.com.screenmatch.model.Titulo;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -13,8 +14,7 @@ public class Main {
         CalculadoraDeTempo calcula = new CalculadoraDeTempo();
 
         FiltroRecomendacao filtro = new FiltroRecomendacao();
-        ArrayList<Filme> listaFilmes = new ArrayList<>();
-        ArrayList<Serie> listaSeries = new ArrayList<>();
+        ArrayList<Titulo> listaTitulos = new ArrayList<>();
 
         Filme meuFilme = new Filme("Alto da compadecida", 2002, 30, "Guel Arraes");
         meuFilme.avalia(8);
@@ -33,12 +33,11 @@ public class Main {
         calcula.somaTempo(meuFilme);
         calcula.somaTempo(minhaSerie);
 
-        listaFilmes.add(meuFilme);
+        listaTitulos.add(meuFilme);
 
-        listaSeries.add(minhaSerie);
+        listaTitulos.add(minhaSerie);
 
-        System.out.println(listaFilmes);
-        System.out.println(listaSeries);
+        System.out.println(listaTitulos);
 
         System.out.println("Tempo total da sua lista: " + calcula.getTempoTotal() + " minutos");
     }
