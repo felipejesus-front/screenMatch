@@ -1,14 +1,18 @@
 package br.com.screenmatch.model;
 
 import br.com.screenmatch.calculos.CalculaEstrelas;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Titulo implements CalculaEstrelas {
 
+    @SerializedName("Title")
     String nome;
+    @SerializedName("Year")
     private int anoDeLancamento;
+    @SerializedName("")
     private boolean incluidoNoPlano;
     private final List<Double> avaliacoes = new ArrayList<Double>();
     private int totalAvaliacao;
@@ -19,6 +23,12 @@ public class Titulo implements CalculaEstrelas {
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOMDB meuTituloOMDB) {
+        this.nome = meuTituloOMDB.title();
+        this.anoDeLancamento = Integer.parseInt(meuTituloOMDB.year());
+        this.duracaoEmMinutos = meuTituloOMDB.runtime().isBlank() ? 0 : Integer.parseInt(meuTituloOMDB.runtime().replace(" min", ""));
     }
 
     @Override
@@ -45,6 +55,15 @@ public class Titulo implements CalculaEstrelas {
                 .sum();
         this.mediaAvaliacao = somaAvaliacoes / totalAvaliacao;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Titulo{" +
+                "anoDeLancamento=" + anoDeLancamento +
+                ", nome='" + nome + '\'' +
+                "duracaoEmMinutos=" + duracaoEmMinutos + '\'' +
+                '}';
     }
 
     public int getAnoDeLancamento() {
