@@ -35,7 +35,7 @@ public class Main {
         System.out.println("Digite o nome do filme ou série que deseja buscar:");
         String busca = leitura.nextLine();
 
-        String endereco = "http://www.omdbapi.com/?t=" + busca + "&apikey="+ apiKey;
+        String endereco = "http://www.omdbapi.com/?t=" + busca.replace(' ', '+') + "&apikey="+ apiKey;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -49,9 +49,16 @@ public class Main {
         TituloOMDB meuTituloOMDB = gson.fromJson(json, TituloOMDB.class);
 
 
-        Titulo meuTitulo = new Titulo(meuTituloOMDB);
+        try{
+            Titulo meuTitulo = new Titulo(meuTituloOMDB);
+            System.out.println(meuTitulo);
+        }catch (Exception e){
+            System.out.println("Erro ao buscar o título: " + e.getMessage());
+            return;
+        }
 
-        System.out.println(meuTitulo);
+
+
 
 
 

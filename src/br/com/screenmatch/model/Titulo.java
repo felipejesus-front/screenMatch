@@ -1,6 +1,7 @@
 package br.com.screenmatch.model;
 
 import br.com.screenmatch.calculos.CalculaEstrelas;
+import br.com.screenmatch.excecao.ErroDeConversaoDeAnoException;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ public class Titulo implements CalculaEstrelas {
 
     public Titulo(TituloOMDB meuTituloOMDB) {
         this.nome = meuTituloOMDB.title();
+
+        if (meuTituloOMDB.year().length() > 4) {
+            throw new ErroDeConversaoDeAnoException("Ano com mais de 4 caracteres: " + meuTituloOMDB.year());
+        }
         this.anoDeLancamento = Integer.parseInt(meuTituloOMDB.year());
         this.duracaoEmMinutos = meuTituloOMDB.runtime().isBlank() ? 0 : Integer.parseInt(meuTituloOMDB.runtime().replace(" min", ""));
     }
